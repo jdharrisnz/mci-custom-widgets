@@ -11,6 +11,7 @@ Subtotals are calculated and formatted if the metric is detected to be summable,
 Add `dataBarsTable.initialize();` to the JS section of the Custom Widget Editor, and add the below links to the dependencies area (second button at the top left of the Custom Widget Editor).
 
 Style: `https://solutions.datorama-res.com/public_storage_solutions/dataBarsTable/v1/dataBarsTable.css`
+
 Script: `https://solutions.datorama-res.com/public_storage_solutions/dataBarsTable/v1/dataBarsTable.js`
 
 ## Preferences

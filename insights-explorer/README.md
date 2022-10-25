@@ -9,6 +9,7 @@ This custom widget loads bots in the workspace and visualises their insights. It
 Add `emiExplorer.initialize();` to the JS section of the Custom Widget Editor, and add the below links to the dependencies area (second button at the top left of the Custom Widget Editor).
 
 Style: `https://solutions.datorama-res.com/public_storage_solutions/emiExplorer/v1/emiExplorer.css`
+
 Script: `https://solutions.datorama-res.com/public_storage_solutions/emiExplorer/v1/emiExplorer.js`
 
 ## Preferences

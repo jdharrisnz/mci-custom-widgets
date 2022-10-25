@@ -9,6 +9,7 @@ This custom widget loads insights from a single bot in the workspace and present
 Add `emiCarousel.initialize();` to the JS section of the Custom Widget Editor, and add the below links to the dependencies area (second button at the top left of the Custom Widget Editor).
 
 Style: `https://solutions.datorama-res.com/public_storage_solutions/emiCarousel/v1/emiCarousel.css`
+
 Script: `https://solutions.datorama-res.com/public_storage_solutions/emiCarousel/v1/emiCarousel.js`
 
 ## Recommended Configuration
