@@ -1,0 +1,68 @@
+body {
+	font-family: "Open Sans";
+	font-size: 12px;
+	line-height: 0;
+}
+
+svg {
+	width: 100%;
+	height: 100%;
+}
+
+.labelcontainer {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	line-height: normal;
+	pointer-events: none;
+}
+
+.labelcontainer.level0 {
+	flex-direction: column-reverse;
+	justify-content: center;
+	align-items: center;
+
+	color: rgb(242, 242, 242);
+	font-size: 1.2em;
+	font-weight: 600;
+}
+
+.labelcontent {
+	max-width: 100%;
+	white-space: nowrap;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+}
+
+.labelcontent:not(.category) {
+	text-overflow: initial;
+}
+
+.labelcontent.level0.value {
+	font-size: 2em;
+}
+
+.labelcontent:not(.level0) {
+	color: rgba(0, 1, 2, 0.67);
+	padding-right: 1ch;
+}
+
+.labelcontent.category:not(.level0) {
+	font-weight: 600;
+}
+
+#breadcrumbs {
+	color: rgba(0, 1, 2, 0.67);
+	font-weight: 600;
+	line-height: normal;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+path {
+	fill: rgb(230, 230, 230)
+}
