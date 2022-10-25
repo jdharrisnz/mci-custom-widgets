@@ -1,0 +1,174 @@
+body {
+	font-family: "Open Sans";
+	font-size: 12px;
+	background-color: rgb(255, 255, 255);
+}
+
+#viewblocker {
+	position: absolute;
+	z-index: 1;
+	height: 3.5em;
+	width: 100%;
+	background-color: rgb(255, 255, 255);
+}
+
+#table {
+	border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+.colheader, .bodyparent, .bodychild {
+	padding: 0.5em;
+}
+
+.colheader.blank, .colheader.summary-date {
+	position: sticky;
+	top: 3.5em;
+	z-index: 3;
+	color: rgb(130, 130, 130);
+	border-top: 1px solid rgb(204, 204, 204);
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.colheader.label, .colheader.date {
+	position: sticky;
+	top: calc(5.5em + 5px + 1px);
+	z-index: 3;
+	color: rgb(130, 130, 130);
+	border-bottom: 1px solid rgb(204, 204, 204);
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.colheader.label {
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.colheader.date {
+	font-weight: normal;
+	text-align: center;
+	min-width: 1.75em;
+}
+
+.colheader.weekend {
+	background-color: rgb(245, 245, 245);
+	background-color: rgba(245, 245, 245, 0.9);
+}
+
+.bodyparent {
+	font-weight: 600;
+}
+
+.bodyparent.bodylevel0 {
+	position: sticky;
+	top: calc(7.5em + 10px + 2px);
+	z-index: 2;
+}
+
+.bodychild {
+	white-space: nowrap;
+}
+
+.bodychild span {
+	position: relative;
+	top: calc(50px - 1.2em);
+}
+
+.collapsible {
+	cursor: pointer;
+	padding-right: 1ch;
+}
+
+.collapsible svg {
+	fill:  rgb(156, 160, 160);
+}
+
+.collapsible svg:hover {
+	fill:  rgb(10, 135, 198);
+}
+
+.svg {
+	padding: 0;
+}
+
+#tooltip {
+	position: absolute;
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(204, 204, 204);
+	border-radius: 0.5em;
+	padding: 0.5em;
+	pointer-events: none;
+}
+
+.gridLine {
+	stroke: rgb(230, 230, 230);
+	stroke-width: 1px;
+	vector-effect: non-scaling-stroke;
+}
+
+.gridLine.line0 {
+	stroke: rgb(212, 212, 212);
+	stroke-width: 3px;
+}
+
+#tooltip {
+	z-index: 4;
+}
+
+#tooltip .date {
+	padding-left: calc(0.33em + 4px);
+	font-weight: 600;
+}
+
+#tooltip .metric {
+	color: rgb(130, 130, 130);
+	padding-left: 0.33em;
+	border-left: 4px solid;
+}
+
+#reference {
+	position: sticky;
+	top: 0;
+	z-index: 3;
+	white-space: nowrap;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-top: 0.5em;
+	padding-right: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+#legend {
+	color: rgb(130, 130, 130);
+	border: 1px solid rgb(204, 204, 204);
+	border-radius: 5px;
+	padding: 0.5em;
+	margin-right: 1em;
+}
+
+#legend span {
+	border-bottom: 2px solid;
+	margin-right: 1em;
+}
+
+#axescontrol {
+	color: rgb(130, 130, 130);
+	border: 1px solid rgb(204, 204, 204);
+	border-radius: 5px;
+	padding: 0.5em;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+#barscalecontrol {
+	color: rgb(130, 130, 130);
+	border: 1px solid rgb(204, 204, 204);
+	border-radius: 5px;
+	padding: 0.5em;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+#barscale {
+	vertical-align: text-bottom;
+	margin: 0;
+}
