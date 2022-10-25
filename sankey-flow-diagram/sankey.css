@@ -1,0 +1,91 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+	line-height: 0;
+}
+
+#viewContainer {
+	position: relative;
+	margin: 2em 0 2em 0;
+	width: 100%;
+	height: calc(100% - 4em);
+}
+
+svg {
+	width: 100%;
+	height: 100%;
+}
+
+.node {
+	fill: var(--gradient-end);
+}
+
+#gradient {
+	--grad-start: var(--gradient-start);
+	--grad-end: var(--gradient-end);
+}
+
+#node-0 {
+	fill: url(#gradient);
+}
+
+.link {
+	fill: rgba(0, 0, 0, 0.1);
+	vector-effect: non-scaling-stroke;
+}
+
+.labelContainer {
+	position: absolute;
+	display: flex;
+	box-sizing: border-box;
+	padding: 0 1ch 0 1ch;
+	line-height: 1.2em;
+	color: rgba(0, 1, 2, 0.67);
+	pointer-events: none;
+}
+
+#labelContainer-0 {
+	flex-direction: column-reverse;
+	justify-content: center;
+	align-items: center;
+	color: rgb(242, 242, 242);
+	font-size: 1.2em;
+	font-weight: 600;
+	white-space: nowrap;
+	line-height: normal;
+}
+
+#labelContainer-0 .values {
+	font-size: 2em;
+}
+
+.name {
+	font-weight: 600;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+#tooltip {
+	position: absolute;
+	width: 200px;
+	z-index: 1;
+	transform: translateY(-25px);
+	pointer-events: none;
+	color: rgba(0, 1, 2, 0.67);
+	line-height: normal;
+	background-color: white;
+	border: 1px solid rgb(230, 230, 230);
+	border-radius: 5px;
+	padding: 0.5em;
+}
+
+#breadcrumbs {
+	color: rgba(0, 1, 2, 0.67);
+	font-weight: 600;
+	line-height: normal;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
