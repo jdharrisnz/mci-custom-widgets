@@ -329,7 +329,7 @@ const timeline = {
 					? 0.01 // If it hasn't started, minimum nonzero progress
 					: d.endDate < new Date()
 					? 1 // If it's ended, maximum progress
-					: (new Date() - d.endDate) / (d.endDate - d.startDate); // Else calculate progress
+					: (new Date() - d.startDate) / (d.endDate - d.startDate); // Else calculate progress
 				const normalisedDenom = d.subtotals[denomIndex - (data.dimensions().length - 1)].value * timeProgress;
 				const pacing = d.subtotals[numerIndex - (data.dimensions().length - 1)].value / normalisedDenom;
 				const minRed = designSettings.minRed < 1 ? designSettings.minRed : 0.5;
