@@ -25,7 +25,6 @@ const riverBreakdown = {
 		});
 
 		// Don't do anything if the query is invalid
-		data.errorNoData('River Breakdown');
 		if (data.dimensions().length === 0 || data.metrics().length === 0) {
 			const myError = utils.errorMessageTemplate();
 
@@ -37,7 +36,8 @@ const riverBreakdown = {
 			
 			throw new Error('This widget requires one metric and at least one dimension.');
 		}
-		else if (data.metrics()[0].summable === false || data.metrics()[0]?.calculable === false) {
+		data.errorNoData('River Breakdown'); // Zero rows
+		if (data.metrics()[0].summable === false || data.metrics()[0]?.calculable === false) {
 			const myError = utils.errorMessageTemplate();
 
 			myError.title.text('River Breakdown');

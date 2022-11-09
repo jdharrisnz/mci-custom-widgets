@@ -25,8 +25,6 @@ const sankey = {
 		});
 		
 		// Don't do anything if the query is invalid
-		data.errorNoData('Sankey Flow Diagram'); // Zero rows
-
 		if (data.fields().length === 0 ||
 			data.dimensions().length === 0 ||
 			data.metrics().length !== 1) { // If query hasn't been added or if it's invalid
@@ -40,6 +38,7 @@ const sankey = {
 
 			throw new Error('Invalid query settings. Add data to the widget.');
 		}
+		data.errorNoData('Sankey Flow Diagram'); // Zero rows
 
 		// Set the design options
 		let options = [
