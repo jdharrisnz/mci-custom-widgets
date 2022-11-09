@@ -25,15 +25,30 @@ const barPivot = {
 		});
 
 		// Ensure the query meets the conditions
-		data.errorNoData('Bar Pivot'); // No rows
 		if (data.dimensions().findIndex(dim => dim.systemName.startsWith('DATE_') && dim.systemName != 'DATE_YEAR') == -1 || // If a non-year date isn't selected
 			data.dimensions().length == 1 || // Or if day is the only dimension
 			data.metrics().length === 0 || // Or if no metrics are selected
 			data.metrics().length > 4) { // Or if more than four metrics are selected
 			const error = utils.errorMessageTemplate();
 
-			error.title.text('Bar Pivot');
-			error.heading.text('Invalid Query Settings');
+			if (data.isWidgetEmpty()) {
+				error.title.text('Bar Pivot');
+				error.svg
+					.attr('viewBox', '-10 0 532 512')
+					.selectAll('path')
+					.remove();
+				error.svg.append('path')
+					.attr('d', 'M352 96q14 0 23 9v0q9 9 9 23t-9 23t-23 9h-192q-14 0 -23 -9t-9 -23t9 -23t23 -9h192v0zM288 192q14 0 23 9v0q9 9 9 23t-9 23t-23 9h-128q-14 0 -23 -9t-9 -23t9 -23t23 -9h128v0zM416 288q14 0 23 9v0q9 9 9 23t-9 23t-23 9h-256q-14 0 -23 -9t-9 -23t9 -23t23 -9h256 v0z');
+				error.svg.append('path')
+					.attr('opacity', 0.4)
+					.attr('d', 'M32 32q14 0 23 9v0q9 9 9 23v336q1 15 16 16h400q14 0 23 9t9 23t-9 23t-23 9h-400q-34 -1 -57 -23q-22 -23 -23 -57v-336q0 -14 9 -23t23 -9v0z');
+				error.heading.text('Widget Setup');
+			}
+			else {
+				error.title.text('Bar Pivot');
+				error.heading.text('Invalid Query Settings');
+			}
+			
 			error.message.append('span').text('Make sure your widget\'s data query includes');
 			const errorList = error.message.append('ul');
 			errorList.append('li').text('day, week, bi-week, month, or quarter;');
@@ -42,6 +57,7 @@ const barPivot = {
 
 			throw new Error('Invalid query settings. Choose a dimension, a date, and up to four measurements.');
 		}
+		data.errorNoData('Bar Pivot'); // No rows
 
 		// Get metric colours, then set design options
 		const options = [

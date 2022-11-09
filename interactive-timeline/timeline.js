@@ -26,21 +26,38 @@ const timeline = {
 		const query = DA.query.getQuery();
 
 		// Ensure the query meets the conditions
-		data.errorNoData('Interactive Timeline'); // Zero rows
 		if (data.dimensions().length < 3) { // If query has fewer than three dimensions (main, start, end)
 			const myError = utils.errorMessageTemplate();
 
-			myError.title.text('Interactive Timeline');
-			myError.heading.text('Invalid Query Settings');
-			myError.message.append('span').text('To populate this widget, add at least');
+			if (data.isWidgetEmpty()) {
+				myError.title.text('Interactive Timeline');
+				myError.svg
+					.attr('viewBox', '-10 0 522 512')
+					.selectAll('path')
+					.remove();
+				myError.svg.append('path')
+					.attr('d', 'M416 128h-384q-14 0 -23 -9t-9 -23t9 -23t23 -9h384q14 0 23 9t9 23t-9 23t-23 9v0zM416 448h-384q-14 0 -23 -9t-9 -23t9 -23t23 -9h384q14 0 23 9t9 23t-9 23t-23 9v0z');
+				myError.svg.append('path')
+					.attr('opacity', 0.4)
+					.attr('d', 'M64 256q0 -14 9 -23v0q9 -9 23 -9h384q14 0 23 9t9 23t-9 23t-23 9h-384q-14 0 -23 -9t-9 -23v0z');
+				myError.heading.text('Widget Setup');
+			}
+			else {
+				myError.title.text('Interactive Timeline');
+				myError.heading.text('Invalid Query Settings');
+			}
+			
+			myError.message.append('span').text('To populate this widget, add to the Data tab');
 			const errorList = myError.message.append('ul');
 			errorList.append('li').text('a main label dimension;');
-			errorList.append('li').text('a start date dimension; and');
-			errorList.append('li').text('an end date dimension.');
-			myError.message.append('span').text('Then check the widget\'s design tab.');
+			errorList.append('li').text('a start date dimension;');
+			errorList.append('li').text('an end date dimension; and, optionally');
+			errorList.append('li').html('a group dimension, a colour dimension,<br/>and summable measurement(s).')
+			myError.message.append('span').text('Then fill out the widget\'s Design tab.');
 
 			throw new Error('Invalid query settings. Add main label, start date, and end date dimensions.');
 		}
+		data.errorNoData('Interactive Timeline'); // Zero rows
 
 		// Set the design options
 		let generalOptions = [
