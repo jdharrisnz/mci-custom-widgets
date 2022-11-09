@@ -627,7 +627,12 @@
 						if (self.rows().length === 0) {
 							const myError = utils.errorMessageTemplate();
 
-							myError.title.text(title);
+							if (title === null) {
+								myError.title.remove();
+							}
+							else {
+								myError.title.text(title);
+							}
 							myError.svg
 								.attr('viewBox', '0 0 20 20')
 								.html(null)
@@ -638,6 +643,11 @@
 
 							throw new Error('The query result has no rows. Check data or applied filters.');
 						}
+					};
+
+					// Function to check for empty-state widget
+					self.isWidgetEmpty = function() {
+						return self.fields().length === 0;
 					};
 
 					return this;
