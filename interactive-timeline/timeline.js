@@ -778,12 +778,6 @@ const timeline = {
 						else if (d.systemName == designSettings.endDate) {
 							return rowData.endDate.toLocaleDateString('default', {'dateStyle': 'medium'});
 						}
-						else if (d.systemName == designSettings.numerator) {
-							return rowData.subtotals[numerIndex - (data.dimensions().length - 1)].formattedValue;
-						}
-						else if (d.systemName == designSettings.denominator) {
-							return rowData.subtotals[denomIndex - (data.dimensions().length - 1)].formattedValue;
-						}
 						else {
 							return rowData.values[0][indexAdj(d)].formattedValue;
 						}
@@ -793,9 +787,10 @@ const timeline = {
 					const tooltipProgress = tooltip.append('div')
 						.attr('class', 'tooltip-row');
 
+					const label = data.fields().find(x => x.systemName == designSettings.numerator).name;
 					tooltipProgress.append('div')
 						.attr('class', 'tooltip-category')
-						.text(data.fields()[numerIndex].name);
+						.text(label);
 
 					tooltipProgress.append('div')
 						.attr('class', 'tooltip-value')
