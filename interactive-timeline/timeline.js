@@ -387,8 +387,12 @@ const timeline = {
 
 		const startIndex = indexAdj(data.fields().find(field => field.systemName == designSettings.startDate));
 		const endIndex = indexAdj(data.fields().find(field => field.systemName == designSettings.endDate));
-		const numerIndex = indexAdj(data.fields().find(field => field.systemName == designSettings.numerator));
-		const denomIndex = indexAdj(data.fields().find(field => field.systemName == designSettings.denominator));
+		if (designSettings.numerator != 'None') {
+			var numerIndex = indexAdj(data.fields().find(field => field.systemName == designSettings.numerator));
+		}
+		if (designSettings.denominator != 'None') {
+			var denomIndex = indexAdj(data.fields().find(field => field.systemName == designSettings.denominator));
+		}
 
 		const summaryRows = data.subtotals(mainDimIndex).map(subtotal => {
 			subtotal.startDate = new Date(d3.min(subtotal.values, x => x[startIndex].value));
